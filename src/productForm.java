@@ -4,10 +4,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-//bib  export csv
+
 import java.io.*;
 import java.io.FileFilter;
-//bib pdf
+
 import java.io.FileOutputStream;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
@@ -52,7 +52,7 @@ public class productForm extends javax.swing.JFrame {
            txtpid.removeAllItems();
            while(rs.next()){ 
               
-               txtpid.addItem(rs.getString(1));//u tzydou fel menu u rs.getString(1) bech trecuperi l id loul eli f table
+               txtpid.addItem(rs.getString(1));
            }
         } catch (SQLException ex) {
             Logger.getLogger(productForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,7 +68,7 @@ public class productForm extends javax.swing.JFrame {
            pst =con.prepareStatement("SELECT*FROM student ");
            rs=pst.executeQuery();
            ResultSetMetaData rss=rs.getMetaData();
-           q=rss.getColumnCount();//recupere nb de colonne dans le resultat
+           q=rss.getColumnCount();
            
            DefaultTableModel df = (DefaultTableModel)jTable1.getModel();
         df.setRowCount(0); 
@@ -455,8 +455,8 @@ public class productForm extends javax.swing.JFrame {
             fw.append('\n');
         }
         JOptionPane.showMessageDialog(this,"CSV file is exported successfully!!");
-        fw.flush(); //vide le tampon du FileWriter
-        fw.close(); //ferme le FileWriter
+        fw.flush(); 
+        fw.close(); 
         } catch (IOException ex) {
             Logger.getLogger(productForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
